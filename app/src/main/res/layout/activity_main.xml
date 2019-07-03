@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="0dp"
+    tools:context=".MainActivity">
+
+    <ListView
+        android:id="@+id/listView"
+        android:paddingTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/send_message_layout"
+        android:layout_marginBottom="60dp"
+        android:divider="@null"/>
+
+        <LinearLayout
+            android:id="@+id/send_message_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#ffdddddd"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_vertical"
+            android:visibility="invisible">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:src="@drawable/bot"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+            <EditText
+                android:id="@+id/edtTextMsg"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/btnSend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_send_24dp"/>
+        </LinearLayout>
+    <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/send_message_layout">
+    <LinearLayout
+        android:id="@+id/quick_reply"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="107dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="Button1"
+            android:textAllCaps="false"
+            android:textSize="13sp"
+            android:theme="@style/AppTheme.Button"
+            android:visibility="invisible"
+        />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="107dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="Button2"
+            android:textAllCaps="false"
+            android:theme="@style/AppTheme.Button"
+            android:visibility="invisible"/>
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="Button3"
+            android:textAllCaps="false"
+            android:theme="@style/AppTheme.Button"
+            android:visibility="invisible"
+            />
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="Button4"
+            android:textAllCaps="false"
+            android:theme="@style/AppTheme.Button"
+            android:visibility="invisible"
+            />
+
+    </LinearLayout>
+
+    </HorizontalScrollView>
+
+</RelativeLayout>
