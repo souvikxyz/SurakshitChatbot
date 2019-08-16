@@ -1,18 +1,18 @@
 {
   "fir": "Sorry! No initial report available",
   "question_dict":[
-    {"que":"Location of casualty",
-      options:0},
+    {"que":"Location of casualty?",
+      "options":0},
       {"que":"Number of people died?",
         "options":0},
     {"que":"Number of cattle death?",
-      "options":4},
-    {"que":"Number Of injured",
-      "options":4},
-    {"que":"Any old aged person injured?","options":2},
+      "options":4,"choices":["30","40","50","60"]},
+    {"que":"Number Of injured?",
+      "options":4,"choices":["10","30","40",">50"]},
+    {"que":"Any old aged person injured?","options":2,"choices": ["yes","no"]},
     {"que":"How many?","options":0},
-    {"que":"Number of missing?","options":4},
-    {"que":"Any child missing?","options":2},
+    {"que":"Number of missing?","options":4,"choices": ["10","20","30","40"]},
+    {"que":"Any child missing?","options":2,"choices":["yes","no"] },
     {"que":"How many","options":0}
     ]
 

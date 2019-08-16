@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.androidchatbot.Adapter.ChatMessageAdapter;
@@ -41,7 +42,22 @@ import java.util.Scanner;
 import static java.lang.System.in;
 import static java.lang.System.out;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+    RelativeLayout mainLayout;
+    LayoutInflater inflater;
+    View myLayout ;
+    Button button1;
+    Button button2;
+    Button button3;
+    Button button4;
+    LinearLayout sndmessage;
+    int flag;
+    String message;
+    int i;
+    public Question[] obj;
+    String que1;
+    String options1;
+    int x;
 
     ListView listView;
 
@@ -53,155 +69,41 @@ public class MainActivity extends AppCompatActivity {
     public static Chat chat;
     private ChatMessageAdapter adapter;
 
-    String JSON_STRING = "{\"questions\":{\"QUESTION\":[\">200\",\">400\",\">600\",\">800\"]}}";
-
-    Button setOptions1, setOptions2, setOptions3, setOptions4;
-    int clickcount = 0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mainLayout= findViewById(R.id.activity_main_layout);
+//        inflater=getLayoutInflater();
+//        myLayout = inflater.inflate(R.layout.quick_reply_layout, mainLayout, false);
+        sndmessage = findViewById(R.id.send_message_layout);
+        /* sndmessage.setVisibility(View.INVISIBLE); */
+        button1=findViewById(R.id.button1);
+        button2=findViewById(R.id.button2);
+        button3=findViewById(R.id.button3);
+        button4=findViewById(R.id.button4);
+        flag=0;
         listView = findViewById(R.id.listView);
         btnSend = findViewById(R.id.btnSend);
         edtTextMsg = findViewById(R.id.edtTextMsg);
         imageView = findViewById(R.id.imageView);
-        setOptions1 = findViewById(R.id.button1);
-        setOptions2 = findViewById(R.id.button2);
-        setOptions3 = findViewById(R.id.button3);
-        setOptions4 = findViewById(R.id.button4);
-//        Button[] setOptions = new Button[4];
-//        for(int i=0;i<4;i++){
-//            setOptions[i]=
-//        }
+
         adapter = new ChatMessageAdapter(this, new ArrayList<ChatMessage>());
         listView.setAdapter(adapter);
 
-
-        //try {
-//            // get JSONObject from JSON file
-//            JSONObject obj = new JSONObject(JSON_STRING);
-//            // fetch JSONObject named employee
-//            JSONObject questions = obj.getJSONObject("questions");
-//            // get employee name and salary
-////            question = questions.getString(1);
-//            JSONArray options = questions.getJSONArray("QUESTION");
-//            final String option1 = options.getString(1);
-//
-//            convertView= LayoutInflater.from(getContext())
-
-//            setOptions2.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    clickcount=clickcount+1;
-//                    if(clickcount%2==0)
-//                    {
-//                        setOptions1.setVisibility(View.VISIBLE);
-//                    }
-//                    else {
-//                          setOptions1.setVisibility(View.INVISIBLE);
-////                        ViewGroup group = (ViewGroup)(setOptions1.getParent()); group.removeView(setOptions1);
-//                    }
-//
-//                }
-//            });
-        ////////////////////////////////////////////////////////////
-//            setContentView(R.layout.activity_main);
-////////////////////////////////////////////////////////////////////
-//
-        //      while(int i<=5){
-//         botsReply("HOW MANY DEAD");
-//
-//       String questions[]=getJsonFileFromLocally();
-//       int len=questions.length;
-//       for(int i=0;i<len;i++){
-//            if(i==1){
-//                botsReply(questions[i]);
-//
-//            }}
-//           LinearLayout lay_1 = findViewById(R.id.quick_reply);
-//            setOptions1.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-////                    LinearLayout lay_1 = findViewById(R.id.quick_reply);
-//                    String message = setOptions1.getText().toString();
-//                    String response = chat.multisentenceRespond(message);
-//                    sendMessage(message);
-//                    botsReply(response);
-////                    lay_1.setVisibility(View.INVISIBLE);
-//
-//
-//                }
-//
-//            });
-//            setOptions2.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-////                    LinearLayout lay_1 = findViewById(R.id.quick_reply);
-//                    String message = setOptions2.getText().toString();
-//                    String response = chat.multisentenceRespond(message);
-//                    sendMessage(message);
-//                    botsReply(response);
-////                    lay_1.setVisibility(View.INVISIBLE);
-//
-//
-//                }
-//
-//            });
-//            setOptions3.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-////                    LinearLayout lay_1 = findViewById(R.id.quick_reply);
-//                    String message = setOptions3.getText().toString();
-//                    String response = chat.multisentenceRespond(message);
-//                    sendMessage(message);
-//                    botsReply(response);
-////                    lay_1.setVisibility(View.INVISIBLE);
-//
-//                }
-//
-//            });
-//            setOptions4.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-////                    LinearLayout lay_1 = findViewById(R.id.quick_reply);
-//                    String message = setOptions4.getText().toString();
-//                    String response = chat.multisentenceRespond(message);
-//                    sendMessage(message);
-//                    botsReply(response);
-////                    lay_1.setVisibility(View.INVISIBLE);
-//
-//
-//                }
-//
-//            });
-
-
-//            if(i==5)
-//                lay_1.setVisibility(View.INVISIBLE);
-
-//        }
-//        if ( false )
-//        {
-//            setOptions.setVisibility(View.VISIBLE); //SHOW the button
-//        }
-//
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-
-
+//        button1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                message = button1.getText().toString();
+//                sendMessage(message);
+//                botsReply("OK");
+//                flag++;
+//            }
+//        });
 //        btnSend.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//
-//        String message= "abcd";
-//        String response = chat.multisentenceRespond("abcd");
-//                Context context;
-//                LayoutInflater inflater = (LayoutInflater) context
-//                        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//                View view = inflater.inflate(R.layout.quick_reply_layout, parent, false);
 //                String message=edtTextMsg.getText().toString();
 //
 //                String response = chat.multisentenceRespond(edtTextMsg.getText().toString());
@@ -211,13 +113,101 @@ public class MainActivity extends AppCompatActivity {
 //                    return;
 //                }
 //                sendMessage(message);
-//                botsReply(response);
-//
-//                clear edittext
+//                botsReply("OK");
 //                edtTextMsg.setText("");
 //                listView.setSelection(adapter.getCount() - 1);
 //            }
 //        });
+
+//        botsReply("Sorry! No initial report available");
+//
+//        botsReply("Location of casualty?");
+//        btnSend.setOnClickListener(this);
+//
+//        botsReply("Number of people died?");
+//        btnSend.setOnClickListener(this);
+//
+//        botsReply("Number of cattle death?");
+//        button1.setVisibility(View.VISIBLE);
+//        button2.setVisibility(View.VISIBLE);
+//        button3.setVisibility(View.VISIBLE);
+//        button4.setVisibility(View.VISIBLE);
+//        button1.setEnabled(true);
+//        button2.setEnabled(true);
+//        button3.setEnabled(true);
+//        button4.setEnabled(true);
+//        button1.setText("30");
+//        button1.setText("40");
+//        button1.setText("50");
+//        button1.setText("60");
+//        button1.setOnClickListener(this);
+//        button2.setOnClickListener(this);
+//        button3.setOnClickListener(this);
+//        button4.setOnClickListener(this);
+//
+//        botsReply("Number Of injured?");
+//        button1.setEnabled(true);
+//        button2.setEnabled(true);
+//        button3.setEnabled(true);
+//        button4.setEnabled(true);
+//        button1.setVisibility(View.VISIBLE);
+//        button2.setVisibility(View.VISIBLE);
+//        button3.setVisibility(View.VISIBLE);
+//        button4.setVisibility(View.VISIBLE);
+//        button1.setText("10");
+//        button1.setText("30");
+//        button1.setText("40");
+//        button1.setText(">50");
+//        button1.setOnClickListener(this);
+//        button2.setOnClickListener(this);
+//        button3.setOnClickListener(this);
+//        button4.setOnClickListener(this);
+//
+//        botsReply("Any old aged person injured?");
+//        button1.setEnabled(true);
+//        button2.setEnabled(true);
+//        button1.setVisibility(View.VISIBLE);
+//        button2.setVisibility(View.VISIBLE);
+//        button1.setText("YES");
+//        button2.setText("NO");
+//        button1.setOnClickListener(this);
+//        button2.setOnClickListener(this);
+
+//        botsReply("How many?");
+//        btnSend.setOnClickListener(this);
+//
+//        botsReply("Number of missing?");
+//        button1.setEnabled(true);
+//        button2.setEnabled(true);
+//        button3.setEnabled(true);
+//        button4.setEnabled(true);
+//        button1.setVisibility(View.VISIBLE);
+//        button2.setVisibility(View.VISIBLE);
+//        button3.setVisibility(View.VISIBLE);
+//        button4.setVisibility(View.VISIBLE);
+//        button1.setText("10");
+//        button1.setText("20");
+//        button1.setText("30");
+//        button1.setText("40");
+//        button1.setOnClickListener(this);
+//        button2.setOnClickListener(this);
+//        button3.setOnClickListener(this);
+//        button4.setOnClickListener(this);
+//
+//        botsReply("Any child missing?");
+//        button1.setEnabled(true);
+//        button2.setEnabled(true);
+//        button1.setVisibility(View.VISIBLE);
+//        button2.setVisibility(View.VISIBLE);
+//        button1.setText("YES");
+//        button2.setText("NO");
+//        button1.setOnClickListener(this);
+//        button2.setOnClickListener(this);
+//
+//        botsReply("How many?");
+//        btnSend.setOnClickListener(this);
+
+//
 
         boolean available = isSDCardAvailable();
         AssetManager assets = getResources().getAssets();
@@ -283,134 +273,78 @@ public class MainActivity extends AppCompatActivity {
         parseJson(builder.toString());
     }
 
-    private void parseJson(String s) {
-        StringBuilder builder = new StringBuilder();
+    public void parseJson(String s) {
+//        StringBuilder builder = new StringBuilder();
         try {
             JSONObject root = new JSONObject(s);
             String fir = root.getString("fir");
             botsReply(fir);
             JSONArray question_dict = root.getJSONArray("question_dict");
 
-            for (int i = 0; i < question_dict.length(); ) {
+
+            for (i = 0; i < question_dict.length(); i++) {
+                Log.d("flag", String.valueOf(flag));
                 JSONObject ques = question_dict.getJSONObject(i);
                 String que = ques.getString("que");
-                botsReply(que);
+
                 String options = ques.getString("options");
-                LinearLayout lay_2 = findViewById(R.id.quick_reply);
-                LinearLayout sndmessage = findViewById(R.id.send_message_layout);
-                    if(options=="0") {
+//                LinearLayout lay_2 = findViewById(R.id.quick_reply);
+                String choice_array[] = new String[4];
+                Log.d("souvik ", options);
+                Log.d("souvik5",que);
+                if (!options.contains("0")) {
+                    JSONArray choices = ques.getJSONArray("choices");
+                    for (int j = 0; j < choices.length(); j++) {
+                        choice_array[j] = choices.get(j).toString();
+                    }
+                }
+                flag++;
+                Question obj1 = new Question(que,options,choice_array);
+                Log.d("souvik2",obj1.getQuestion());
+                botsReply(obj1.getQuestion());
+                switch(obj1.getOptions()){
+                    case "0": sndmessage.setVisibility(View.VISIBLE);
+                              btnSend.setOnClickListener(this);
+                              break;
+                    case "2": button1.setVisibility(View.VISIBLE);
+                              button2.setVisibility(View.VISIBLE);
+                              button1.setText(choice_array[0]);
+                              button2.setText(choice_array[1]);
+                              button1.setEnabled(true);
+                              button2.setEnabled(true);
+                              button1.setOnClickListener(this);
+                              button2.setOnClickListener(this);
+                              break;
+                    case "4": button1.setVisibility(View.VISIBLE);
+                                button2.setVisibility(View.VISIBLE);
+                                button3.setVisibility(View.VISIBLE);
+                                button4.setVisibility(View.VISIBLE);
+                                button1.setEnabled(true);
+                                button2.setEnabled(true);
+                                button3.setEnabled(true);
+                                button4.setEnabled(true);
+                                button1.setText(choice_array[0]);
+                                button2.setText(choice_array[1]);
+                                button3.setText(choice_array[2]);
+                                button4.setText(choice_array[3]);
+                                button1.setOnClickListener(this);
+                                button2.setOnClickListener(this);
+                                button3.setOnClickListener(this);
+                                button4.setOnClickListener(this);
 
-                            sndmessage.setVisibility(View.VISIBLE);
-                            btnSend.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-
-                                    String message = edtTextMsg.getText().toString();
-
-                                    String response = chat.multisentenceRespond(edtTextMsg.getText().toString());
-
-                                    if (TextUtils.isEmpty(message)) {
-                                        Toast.makeText(MainActivity.this, "Please Enter a query", Toast.LENGTH_SHORT).show();
-                                        return;
-                                    }
-                                    sendMessage(message);
-                                    botsReply("OK");
-
-                                    edtTextMsg.setText("");
-                                    listView.setSelection(adapter.getCount() - 1);
-                                }
-                            });
-                        }
-                        else if(options=="2") {
-                            setOptions2.setVisibility(View.VISIBLE);
-                            setOptions1.setVisibility(View.VISIBLE);
-                            setOptions1.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-//
-                                    setOptions1.setText("Yes");
-                                    String message = setOptions1.getText().toString();
-                                    sendMessage(message);
-                                    botsReply("OK");
-
-                                }
-
-                            });
-
-                            setOptions2.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-//                    LinearLayout lay_1 = findViewById(R.id.quick_reply);
-                                    setOptions2.setText("No");
-                                    String message = setOptions2.getText().toString();
-                                    sendMessage(message);
-                                    botsReply("OK");
-
-                                }
-                            });
-                        }
-                if(options=="4"){
-                            setOptions1.setVisibility(View.VISIBLE);
-                            setOptions2.setVisibility(View.VISIBLE);
-                            setOptions3.setVisibility(View.VISIBLE);
-                            setOptions4.setVisibility(View.VISIBLE);
-                            setOptions1.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-//
-                                    setOptions1.setText("<=10");
-                                    String message = setOptions1.getText().toString();
-                                    String response = chat.multisentenceRespond(message);
-                                    sendMessage(message);
-                                    botsReply("OK");
-
-                                }
-
-                            });
-                            setOptions2.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-//                    LinearLayout lay_1 = findViewById(R.id.quick_reply);
-                                    setOptions2.setText("<=20");
-                                    String message = setOptions2.getText().toString();
-                                    String response = chat.multisentenceRespond(message);
-                                    sendMessage(message);
-                                    botsReply("OK");
-
-                                }
-                            });
-                            setOptions3.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-//                    LinearLayout lay_1 = findViewById(R.id.quick_reply);
-                                    setOptions3.setText("<=40");
-                                    String message = setOptions3.getText().toString();
-                                    String response = chat.multisentenceRespond(message);
-                                    sendMessage(message);
-                                    botsReply("OK");
-
-                                }
-                            });
-                            setOptions4.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-//                    LinearLayout lay_1 = findViewById(R.id.quick_reply);
-                                    setOptions4.setText("<=60");
-                                    String message = setOptions4.getText().toString();
-                                    String response = chat.multisentenceRespond(message);
-                                    sendMessage(message);
-                                    botsReply("OK");
-
-                                }
-                            });
-                        }
-
-
-
-
-                lay_2.setVisibility(View.INVISIBLE);
 
                 }
+            }
+
+
+//                LinearLayout sndmessage = findViewById(R.id.send_message_layout);
+//            x=0;
+
+
+
+
+
+
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -446,6 +380,73 @@ public class MainActivity extends AppCompatActivity {
     private void sendMessage(String message) {
         ChatMessage chatMessage = new ChatMessage(false, true, message);
         adapter.add(chatMessage);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.button1:
+                message = button1.getText().toString();
+                sendMessage(message);
+                botsReply("OK");
+                flag++;
+//                mainLayout.removeView(myLayout);
+
+                break;
+            case R.id.button2:
+                message = button2.getText().toString();
+                sendMessage(message);
+                botsReply("OK");
+                flag++;
+//                mainLayout.removeView(myLayout);
+
+
+                break;
+            case R.id.button3:
+                message = button3.getText().toString();
+                sendMessage(message);
+                botsReply("OK");
+                flag++;
+//                mainLayout.removeView(myLayout);
+
+
+                break;
+            case R.id.button4:
+                message = button4.getText().toString();
+                sendMessage(message);
+                botsReply("OK");
+                flag++;
+
+//                mainLayout.removeView(myLayout);
+
+//                break;
+            case R.id.btnSend:
+//                        String message = edtTextMsg.getText().toString();
+
+                        String response = chat.multisentenceRespond(edtTextMsg.getText().toString());
+
+                        if (TextUtils.isEmpty(message)) {
+                            Toast.makeText(MainActivity.this, "Please Enter a query", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                flag++;
+                        sendMessage(message);
+                        botsReply("OK");
+                        edtTextMsg.setText("");
+
+                        listView.setSelection(adapter.getCount() - 1);
+                        break;
+        }
+        button1.setVisibility(View.INVISIBLE);
+        button2.setVisibility(View.INVISIBLE);
+        button3.setVisibility(View.INVISIBLE);
+        button4.setVisibility(View.INVISIBLE);
+        button1.setEnabled(false);
+        button2.setEnabled(false);
+        button3.setEnabled(false);
+        button4.setEnabled(false);
+
+
     }
 }
 //    public String loadJSONFromAsset() {
