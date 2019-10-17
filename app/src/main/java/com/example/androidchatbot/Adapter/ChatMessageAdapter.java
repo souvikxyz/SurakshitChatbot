@@ -19,6 +19,9 @@ public class ChatMessageAdapter extends ArrayAdapter<ChatMessage> {
 
     private static final int MY_MESSAGE = 0;
     private static final int BOT_MESSAGE = 1;
+    
+    adapter = new ChatMessageAdapter(this, new ArrayList<ChatMessage>());
+        listView.setAdapter(adapter);
 
 
 
