@@ -119,95 +119,95 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //            }
 //        });
 
-//        botsReply("Sorry! No initial report available");
-//
-//        botsReply("Location of casualty?");
-//        btnSend.setOnClickListener(this);
-//
-//        botsReply("Number of people died?");
-//        btnSend.setOnClickListener(this);
-//
-//        botsReply("Number of cattle death?");
-//        button1.setVisibility(View.VISIBLE);
-//        button2.setVisibility(View.VISIBLE);
-//        button3.setVisibility(View.VISIBLE);
-//        button4.setVisibility(View.VISIBLE);
-//        button1.setEnabled(true);
-//        button2.setEnabled(true);
-//        button3.setEnabled(true);
-//        button4.setEnabled(true);
-//        button1.setText("30");
-//        button1.setText("40");
-//        button1.setText("50");
-//        button1.setText("60");
-//        button1.setOnClickListener(this);
-//        button2.setOnClickListener(this);
-//        button3.setOnClickListener(this);
-//        button4.setOnClickListener(this);
-//
-//        botsReply("Number Of injured?");
-//        button1.setEnabled(true);
-//        button2.setEnabled(true);
-//        button3.setEnabled(true);
-//        button4.setEnabled(true);
-//        button1.setVisibility(View.VISIBLE);
-//        button2.setVisibility(View.VISIBLE);
-//        button3.setVisibility(View.VISIBLE);
-//        button4.setVisibility(View.VISIBLE);
-//        button1.setText("10");
-//        button1.setText("30");
-//        button1.setText("40");
-//        button1.setText(">50");
-//        button1.setOnClickListener(this);
-//        button2.setOnClickListener(this);
-//        button3.setOnClickListener(this);
-//        button4.setOnClickListener(this);
-//
-//        botsReply("Any old aged person injured?");
-//        button1.setEnabled(true);
-//        button2.setEnabled(true);
-//        button1.setVisibility(View.VISIBLE);
-//        button2.setVisibility(View.VISIBLE);
-//        button1.setText("YES");
-//        button2.setText("NO");
-//        button1.setOnClickListener(this);
-//        button2.setOnClickListener(this);
+       botsReply("Sorry! No initial report available");
 
-//        botsReply("How many?");
-//        btnSend.setOnClickListener(this);
-//
-//        botsReply("Number of missing?");
-//        button1.setEnabled(true);
-//        button2.setEnabled(true);
-//        button3.setEnabled(true);
-//        button4.setEnabled(true);
-//        button1.setVisibility(View.VISIBLE);
-//        button2.setVisibility(View.VISIBLE);
-//        button3.setVisibility(View.VISIBLE);
-//        button4.setVisibility(View.VISIBLE);
-//        button1.setText("10");
-//        button1.setText("20");
-//        button1.setText("30");
-//        button1.setText("40");
-//        button1.setOnClickListener(this);
-//        button2.setOnClickListener(this);
-//        button3.setOnClickListener(this);
-//        button4.setOnClickListener(this);
-//
-//        botsReply("Any child missing?");
-//        button1.setEnabled(true);
-//        button2.setEnabled(true);
-//        button1.setVisibility(View.VISIBLE);
-//        button2.setVisibility(View.VISIBLE);
-//        button1.setText("YES");
-//        button2.setText("NO");
-//        button1.setOnClickListener(this);
-//        button2.setOnClickListener(this);
-//
-//        botsReply("How many?");
-//        btnSend.setOnClickListener(this);
+       botsReply("Location of casualty?");
+       btnSend.setOnClickListener(this);
 
-//
+       botsReply("Number of people died?");
+       btnSend.setOnClickListener(this);
+
+       botsReply("Number of cattle death?");
+       button1.setVisibility(View.VISIBLE);
+       button2.setVisibility(View.VISIBLE);
+       button3.setVisibility(View.VISIBLE);
+       button4.setVisibility(View.VISIBLE);
+       button1.setEnabled(true);
+       button2.setEnabled(true);
+       button3.setEnabled(true);
+       button4.setEnabled(true);
+       button1.setText("30");
+       button1.setText("40");
+       button1.setText("50");
+       button1.setText("60");
+       button1.setOnClickListener(this);
+       button2.setOnClickListener(this);
+       button3.setOnClickListener(this);
+       button4.setOnClickListener(this);
+
+       botsReply("Number Of injured?");
+       button1.setEnabled(true);
+       button2.setEnabled(true);
+       button3.setEnabled(true);
+       button4.setEnabled(true);
+       button1.setVisibility(View.VISIBLE);
+       button2.setVisibility(View.VISIBLE);
+       button3.setVisibility(View.VISIBLE);
+       button4.setVisibility(View.VISIBLE);
+       button1.setText("10");
+       button1.setText("30");
+       button1.setText("40");
+       button1.setText(">50");
+       button1.setOnClickListener(this);
+       button2.setOnClickListener(this);
+       button3.setOnClickListener(this);
+       button4.setOnClickListener(this);
+
+       botsReply("Any old aged person injured?");
+       button1.setEnabled(true);
+       button2.setEnabled(true);
+       button1.setVisibility(View.VISIBLE);
+       button2.setVisibility(View.VISIBLE);
+       button1.setText("YES");
+       button2.setText("NO");
+       button1.setOnClickListener(this);
+       button2.setOnClickListener(this);
+
+       botsReply("How many?");
+       btnSend.setOnClickListener(this);
+
+       botsReply("Number of missing?");
+       button1.setEnabled(true);
+       button2.setEnabled(true);
+       button3.setEnabled(true);
+       button4.setEnabled(true);
+       button1.setVisibility(View.VISIBLE);
+       button2.setVisibility(View.VISIBLE);
+       button3.setVisibility(View.VISIBLE);
+       button4.setVisibility(View.VISIBLE);
+       button1.setText("10");
+       button1.setText("20");
+       button1.setText("30");
+       button1.setText("40");
+       button1.setOnClickListener(this);
+       button2.setOnClickListener(this);
+       button3.setOnClickListener(this);
+       button4.setOnClickListener(this);
+
+       botsReply("Any child missing?");
+       button1.setEnabled(true);
+       button2.setEnabled(true);
+       button1.setVisibility(View.VISIBLE);
+       button2.setVisibility(View.VISIBLE);
+       button1.setText("YES");
+       button2.setText("NO");
+       button1.setOnClickListener(this);
+       button2.setOnClickListener(this);
+
+       botsReply("How many?");
+       btnSend.setOnClickListener(this);
+
+
 
         boolean available = isSDCardAvailable();
         AssetManager assets = getResources().getAssets();
