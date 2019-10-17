@@ -22,8 +22,8 @@ import android.widget.Toast;
 import com.example.androidchatbot.Adapter.ChatMessageAdapter;
 import com.example.androidchatbot.Model.ChatMessage;
 
-import org.alicebot.ab.AIMLProcessor;
-import org.alicebot.ab.Bot;
+//import org.alicebot.ab.AIMLProcessor;
+//import org.alicebot.ab.Bot;
 import org.alicebot.ab.Chat;
 import org.alicebot.ab.MagicStrings;
 import org.alicebot.ab.PCAIMLProcessorExtension;
