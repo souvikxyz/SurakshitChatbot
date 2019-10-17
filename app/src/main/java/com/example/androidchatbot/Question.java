@@ -18,9 +18,6 @@ public class Question {
 
     public void setQuestion(String question) {
         this.question = question;
-    }
-
-    String getOptions() {
         return options;
     }
 
