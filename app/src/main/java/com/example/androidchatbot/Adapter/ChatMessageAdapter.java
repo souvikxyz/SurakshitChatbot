@@ -69,6 +69,25 @@ public class ChatMessageAdapter extends ArrayAdapter<ChatMessage> {
 
         return convertView;
     }
+        public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    String getOptions() {
+        return options;
+    }
+
+    public void setOptions(String options) {
+        this.options = options;
+    }
+
+    String[] getChoices() {
+        return choices;
+    }
+
+    public void setChoices(String[] choices) {
+        this.choices = choices;
+    }
 
     @Override
     public int getViewTypeCount() {
