@@ -11,7 +11,7 @@ public class ChatMessage {
         this.content = content;
     }
 
-    public boolean isImage() {
+    private static boolean isImage() {
         return isImage;
     }
 
@@ -33,5 +33,8 @@ public class ChatMessage {
 
     public void setContent(String content) {
         this.content = content;
+    }
+    public void setisMine(){
+    this.isMine=isMine;
     }
 }
