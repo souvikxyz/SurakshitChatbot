@@ -242,6 +242,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         out.close();
                     }
                 }
+                       inflater=getLayoutInflater();
+       myLayout = inflater.inflate(R.layout.quick_reply_layout, mainLayout, false);
             } catch (IOException e) {
                 e.printStackTrace();
             }
